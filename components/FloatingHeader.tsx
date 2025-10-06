@@ -1,4 +1,5 @@
-import { Button, Flex, Paper, Text, Image } from '@mantine/core';
+import { Button, Flex, Paper, Text } from '@mantine/core';
+import cybermindsLogo from '../src/assets/cyberminds.png';
 
 const links = ['Home', 'Find Jobs', 'Find Talents', 'About us', 'Testimonials'];
 
@@ -28,12 +29,18 @@ export function FloatingHeader({ onCreateJobClick }: FloatingHeaderProps) {
       <Flex align="center" justify="space-between" wrap="nowrap">
         <Flex align="center" gap="xl" wrap="nowrap" style={{ flexGrow: 1 }}>
           <Flex align="center" gap="sm">
-            <Image 
-              src="/cyberminds.png" 
+            <img 
+              src={cybermindsLogo} 
               alt="CyberMinds Logo" 
-              h={40} 
-              w="auto" 
-              fit="contain"
+              style={{
+                height: '40px',
+                width: 'auto',
+                objectFit: 'contain'
+              }}
+              onError={(e) => {
+                console.error('Image failed to load:', e);
+                e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iOCIgZmlsbD0iIzNiODJmNiIvPgo8dGV4dCB4PSIyMCIgeT0iMjYiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DPC90ZXh0Pgo8L3N2Zz4K';
+              }}
             />
             <Text fw={600} size="lg" c="#111827">
               CyberMinds
