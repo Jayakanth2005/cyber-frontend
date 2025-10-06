@@ -1,4 +1,4 @@
-import { Button, Flex, Paper, Text } from '@mantine/core';
+import { Button, Flex, Paper, Text, Image } from '@mantine/core';
 
 const links = ['Home', 'Find Jobs', 'Find Talents', 'About us', 'Testimonials'];
 
@@ -28,22 +28,15 @@ export function FloatingHeader({ onCreateJobClick }: FloatingHeaderProps) {
       <Flex align="center" justify="space-between" wrap="nowrap">
         <Flex align="center" gap="xl" wrap="nowrap" style={{ flexGrow: 1 }}>
           <Flex align="center" gap="sm">
-            <div style={{
-              width: 32,
-              height: 32,
-              borderRadius: 8,
-              backgroundColor: '#3b82f6',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: 'white',
-              fontWeight: 600,
-              fontSize: '14px'
-            }}>
-              J
-            </div>
+            <Image 
+              src="/cyberminds.png" 
+              alt="CyberMinds Logo" 
+              h={40} 
+              w="auto" 
+              fit="contain"
+            />
             <Text fw={600} size="lg" c="#111827">
-              JobPortal
+              CyberMinds
             </Text>
           </Flex>
           
