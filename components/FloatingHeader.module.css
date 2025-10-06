@@ -1,0 +1,21 @@
+/* Styles for individual navigation links */
+.link {
+  display: inline-block; /* inline-block keeps them side by side */
+  line-height: 1;
+  padding: 4px 8px; /* a little more padding for better click area */
+  border-radius: var(--mantine-radius-sm);
+  text-decoration: none;
+  color: #4B5563; /* A slightly darker gray for better contrast */
+  font-size: var(--mantine-font-size-sm);
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap; /* ensures they never break into a new line */
+}
+
+/* Add a subtle hover effect */
+.link:hover {
+  background-color: #F3F4F6; /* Light gray background on hover */
+  color: #111827; /* Darker text on hover for contrast */
+}
+
+/* .navGroup not needed since all links stay visible */
