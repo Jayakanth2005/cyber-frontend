@@ -21,10 +21,14 @@ export function JobCard({ job }: JobCardProps) {
   
   const getImagePath = () => {
     if (logoUrl) {
-      return logoUrl;
+      // If the URL is already a full URL (starts with http/https), use it directly
+      if (logoUrl.startsWith('http')) {
+        return logoUrl;
+      }
+      // Convert relative path to full GitHub raw URL
+      return `https://raw.githubusercontent.com/Jayakanth2005/cyber-frontend/main/public${logoUrl}`;
     }
-    // Use UI Avatars as immediate fallback instead of trying local path
-    return `https://ui-avatars.com/api/?name=${encodeURIComponent(job.companyName)}&background=3b82f6&color=fff`;
+    return DEFAULT_COMPANY_LOGO;
   };
 
   return (
@@ -58,6 +62,7 @@ export function JobCard({ job }: JobCardProps) {
                 objectFit: 'contain'
               }}
               onError={(e) => {
+                console.error(`Failed to load logo for ${job.companyName}`);
                 e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(job.companyName)}&background=3b82f6&color=fff`;
               }}
             />
