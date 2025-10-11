@@ -43,18 +43,13 @@ export function JobCard({ job }: JobCardProps) {
             alignItems: 'center',
             justifyContent: 'center'
           }}>
-            <img 
-              src={getImagePath()}
-              alt={`${job.companyName} logo`}
-              style={{
-                width: '40px',
-                height: '40px',
-                objectFit: 'contain'
-              }}
-              onError={(e) => {
-                e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(job.companyName)}&background=3b82f6&color=fff`;
-              }}
-            />
+            <img
+  src="/assets/companies/tesla.png"
+  alt="Tesla logo"
+  width={40}
+  height={40}
+/>
+
           </div>
           <Badge
             variant="light"
