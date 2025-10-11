@@ -1,11 +1,11 @@
 export const COMPANY_LOGOS = {
-  'Google': '/assets/companies/google.png',
-  'Microsoft': '/assets/companies/microsoft.png',
-  'Amazon': '/assets/companies/amazon.jpg',
-  'Apple': '/assets/companies/apple.png',
-  'Meta': '/assets/companies/meta.png',
-  'Tesla': '/assets/companies/tesla.png',
-  'CyberMinds': '/assets/cyberminds.png'
+  'Google': 'https://raw.githubusercontent.com/Jayakanth2005/cyber-frontend/main/public/assets/companies/google.png',
+  'Microsoft': 'https://raw.githubusercontent.com/Jayakanth2005/cyber-frontend/main/public/assets/companies/microsoft.png',
+  'Amazon': 'https://raw.githubusercontent.com/Jayakanth2005/cyber-frontend/main/public/assets/companies/amazon.jpg',
+  'Apple': 'https://raw.githubusercontent.com/Jayakanth2005/cyber-frontend/main/public/assets/companies/apple.png',
+  'Meta': 'https://raw.githubusercontent.com/Jayakanth2005/cyber-frontend/main/public/assets/companies/meta.png',
+  'Tesla': 'https://raw.githubusercontent.com/Jayakanth2005/cyber-frontend/main/public/assets/companies/tesla.png',
+  'CyberMinds': 'https://raw.githubusercontent.com/Jayakanth2005/cyber-frontend/main/public/assets/cyberminds.png'
 } as const;
 
-export const DEFAULT_COMPANY_LOGO = '/assets/cyberminds.png';
+export const DEFAULT_COMPANY_LOGO = 'https://raw.githubusercontent.com/Jayakanth2005/cyber-frontend/main/public/assets/cyberminds.png';
