@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Modal, TextInput, Textarea, Button, Select, SimpleGrid, Group } from '@mantine/core';
 import type { Job } from '../src/types';
+import { COMPANY_LOGOS } from '../src/utils/constants';
 
 interface CreateJobModalProps {
   opened: boolean;
@@ -23,13 +24,17 @@ export function CreateJobModal({ opened, onClose, onJobPublished }: CreateJobMod
       return;
     }
 
+    // Use the correct logo path from constants
+    const logoUrl = COMPANY_LOGOS[companyName as keyof typeof COMPANY_LOGOS] || 
+      `https://ui-avatars.com/api/?name=${companyName}&background=3b82f6&color=fff`;
+
     onJobPublished({
       title,
       companyName,
       location,
       type: jobType,
       salary,
-      logo: 'https://ui-avatars.com/api/?name=' + companyName + '&background=3b82f6&color=fff',
+      logo: logoUrl,
       experience: '1-3 yr Exp',
       description,
       responsibilities: description,

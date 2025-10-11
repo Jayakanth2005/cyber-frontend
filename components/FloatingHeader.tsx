@@ -1,5 +1,5 @@
 import { Button, Flex, Paper, Text } from '@mantine/core';
-import cybermindsLogo from '../src/assets/cyberminds.png';
+import { COMPANY_LOGOS } from '../src/utils/constants';
 
 const links = ['Home', 'Find Jobs', 'Find Talents', 'About us', 'Testimonials'];
 
@@ -30,7 +30,7 @@ export function FloatingHeader({ onCreateJobClick }: FloatingHeaderProps) {
         <Flex align="center" gap="xl" wrap="nowrap" style={{ flexGrow: 1 }}>
           <Flex align="center" gap="sm">
             <img 
-              src={cybermindsLogo} 
+              src={COMPANY_LOGOS.CyberMinds}
               alt="CyberMinds Logo" 
               style={{
                 height: '40px',
@@ -88,3 +88,4 @@ export function FloatingHeader({ onCreateJobClick }: FloatingHeaderProps) {
     </Paper>
   );
 }
+
