@@ -18,15 +18,10 @@ interface JobCardProps {
 
 export function JobCard({ job }: JobCardProps) {
   const logoUrl = COMPANY_LOGOS[job.companyName as keyof typeof COMPANY_LOGOS];
-  
+
   const getImagePath = () => {
     if (logoUrl) {
-      // If the URL is already a full URL (starts with http/https), use it directly
-      if (logoUrl.startsWith('http')) {
-        return logoUrl;
-      }
-      // Convert relative path to full GitHub raw URL
-      return `https://raw.githubusercontent.com/Jayakanth2005/cyber-frontend/main/public${logoUrl}`;
+      return logoUrl;
     }
     return DEFAULT_COMPANY_LOGO;
   };
