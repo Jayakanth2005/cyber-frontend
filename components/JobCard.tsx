@@ -44,12 +44,10 @@ export function JobCard({ job }: JobCardProps) {
             justifyContent: 'center'
           }}>
             <img
-  src="/assets/companies/tesla.png"
-  alt="Tesla logo"
-  width={40}
-  height={40}
+  src={logoUrl}
+  alt={`${job.companyName} logo`}
+  style={{ width: 40, height: 40, objectFit: 'contain' }}
 />
-
           </div>
           <Badge
             variant="light"
