@@ -17,10 +17,17 @@ interface JobCardProps {
 }
 
 export function JobCard({ job }: JobCardProps) {
-  // Add debugging to check company name and logo path
-  console.log('Company Name:', job.companyName);
   const logoUrl = COMPANY_LOGOS[job.companyName as keyof typeof COMPANY_LOGOS];
-  console.log('Logo URL:', logoUrl);
+  
+  // Get the correct image path without using baseUrl
+  const getImagePath = () => {
+    if (logoUrl) {
+      // If we have a predefined logo URL in constants, use it directly
+      return logoUrl;
+    }
+    // Otherwise use the fallback path starting with /
+    return `/assets/companies/${job.companyName.toLowerCase()}.png`;
+  };
 
   return (
     <Card 
@@ -45,7 +52,7 @@ export function JobCard({ job }: JobCardProps) {
             justifyContent: 'center'
           }}>
             <img 
-              src={logoUrl || `/companies/${job.companyName.toLowerCase()}.png`}
+              src={getImagePath()}
               alt={`${job.companyName} logo`}
               style={{
                 width: '40px',
@@ -54,12 +61,7 @@ export function JobCard({ job }: JobCardProps) {
               }}
               onError={(e) => {
                 console.error(`Failed to load logo for ${job.companyName}`);
-                // Try the direct path as fallback
-                if (e.currentTarget.src.includes('companies')) {
-                  e.currentTarget.src = `https://ui-avatars.com/api/?name=${job.companyName}&background=3b82f6&color=fff`;
-                } else {
-                  e.currentTarget.src = `/companies/${job.companyName.toLowerCase()}.png`;
-                }
+                e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(job.companyName)}&background=3b82f6&color=fff`;
               }}
             />
           </div>
