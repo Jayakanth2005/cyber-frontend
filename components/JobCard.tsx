@@ -9,7 +9,7 @@ import {
   List,
 } from '@mantine/core';
 import type { Job } from '../src/data/mockjobs';
-import { COMPANY_LOGOS } from '../src/utils/constants';
+import { COMPANY_LOGOS, DEFAULT_COMPANY_LOGO } from '../src/utils/constants';
 
 
 interface JobCardProps {
@@ -19,14 +19,12 @@ interface JobCardProps {
 export function JobCard({ job }: JobCardProps) {
   const logoUrl = COMPANY_LOGOS[job.companyName as keyof typeof COMPANY_LOGOS];
   
-  // Get the correct image path without using baseUrl
   const getImagePath = () => {
     if (logoUrl) {
-      // If we have a predefined logo URL in constants, use it directly
       return logoUrl;
     }
-    // Otherwise use the fallback path starting with /
-    return `/assets/companies/${job.companyName.toLowerCase()}.png`;
+    // Use UI Avatars as immediate fallback instead of trying local path
+    return `https://ui-avatars.com/api/?name=${encodeURIComponent(job.companyName)}&background=3b82f6&color=fff`;
   };
 
   return (
@@ -60,7 +58,6 @@ export function JobCard({ job }: JobCardProps) {
                 objectFit: 'contain'
               }}
               onError={(e) => {
-                console.error(`Failed to load logo for ${job.companyName}`);
                 e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(job.companyName)}&background=3b82f6&color=fff`;
               }}
             />
