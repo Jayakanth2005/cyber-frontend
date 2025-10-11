@@ -17,14 +17,9 @@ interface JobCardProps {
 }
 
 export function JobCard({ job }: JobCardProps) {
-  const logoUrl = COMPANY_LOGOS[job.companyName as keyof typeof COMPANY_LOGOS];
+  const logoUrl = COMPANY_LOGOS[job.companyName as keyof typeof COMPANY_LOGOS] || DEFAULT_COMPANY_LOGO;
 
-  const getImagePath = () => {
-    if (logoUrl) {
-      return logoUrl;
-    }
-    return DEFAULT_COMPANY_LOGO;
-  };
+  const getImagePath = () => logoUrl;
 
   return (
     <Card 
@@ -57,7 +52,6 @@ export function JobCard({ job }: JobCardProps) {
                 objectFit: 'contain'
               }}
               onError={(e) => {
-                console.error(`Failed to load logo for ${job.companyName}`);
                 e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(job.companyName)}&background=3b82f6&color=fff`;
               }}
             />
